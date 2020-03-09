@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSnake));
             this.picGameBoard = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imgList = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picGameBoard)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,7 +40,7 @@
             // 
             this.picGameBoard.Location = new System.Drawing.Point(65, 18);
             this.picGameBoard.Name = "picGameBoard";
-            this.picGameBoard.Size = new System.Drawing.Size(420, 420);
+            this.picGameBoard.Size = new System.Drawing.Size(600, 600);
             this.picGameBoard.TabIndex = 0;
             this.picGameBoard.TabStop = false;
             this.picGameBoard.Click += new System.EventHandler(this.picGameBoard_Click);
@@ -49,28 +49,30 @@
             // 
             this.timer.Enabled = true;
             this.timer.Interval = 500;
+            this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
-            // imageList1
+            // imgList
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "bonus1.png");
-            this.imageList1.Images.SetKeyName(1, "bonus2.png");
-            this.imageList1.Images.SetKeyName(2, "bonus3.png");
-            this.imageList1.Images.SetKeyName(3, "bonus4.png");
-            this.imageList1.Images.SetKeyName(4, "snake_body.png");
-            this.imageList1.Images.SetKeyName(5, "snake_head.png");
-            this.imageList1.Images.SetKeyName(6, "wall.png");
+            this.imgList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgList.ImageStream")));
+            this.imgList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgList.Images.SetKeyName(0, "bonus1.png");
+            this.imgList.Images.SetKeyName(1, "bonus2.png");
+            this.imgList.Images.SetKeyName(2, "bonus3.png");
+            this.imgList.Images.SetKeyName(3, "bonus4.png");
+            this.imgList.Images.SetKeyName(4, "snake_body.png");
+            this.imgList.Images.SetKeyName(5, "snake_head.png");
+            this.imgList.Images.SetKeyName(6, "wall.png");
             // 
             // frmSnake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 450);
+            this.ClientSize = new System.Drawing.Size(1004, 712);
             this.Controls.Add(this.picGameBoard);
             this.Name = "frmSnake";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmSnake_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.picGameBoard)).EndInit();
             this.ResumeLayout(false);
 
@@ -80,7 +82,7 @@
 
         private System.Windows.Forms.PictureBox picGameBoard;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ImageList imgList;
     }
 }
 
